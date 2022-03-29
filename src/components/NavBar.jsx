@@ -1,11 +1,11 @@
 import React from "react"
-
+import bootstrap from "./CSS/bootstrap.css"
 
 export default function NavBar() {
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Twelfth navbar example">
-                    <div class="container-fluid">
+                    <div className="container-fluid">
                       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="true" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                       </button>
