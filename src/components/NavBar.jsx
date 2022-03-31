@@ -1,5 +1,5 @@
 import React from "react"
-import bootstrap from "./CSS/bootstrap.css"
+
 
 export default function NavBar() {
   return (
@@ -10,13 +10,13 @@ export default function NavBar() {
                         <span className="navbar-toggler-icon"></span>
                       </button>
               
-                      <div className="navbar-collapse justify-content-md-center collapse show" id="navbarsExample10" style>
+                      <div className="navbar-collapse justify-content-md-center collapse show" id="navbarsExample10">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                              <a className="nav-link active sindeco" aria-current="page">Inicio</a>
+                              <a className="nav-link active" aria-current="page">Inicio</a>
                             </li>
                             <li className="nav-item">
-                              <a className="nav-link active sindeco" >Juegos</a>
+                              <a className="nav-link active" >Juegos</a>
                             </li>
                             <li className="nav-item dropdown">
                               <a className="nav-link dropdown-toggle active"  id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false">Generos</a>
@@ -39,7 +39,7 @@ export default function NavBar() {
                               </ul>
                             </li>
                             <li className="nav-item">
-                              <a className="nav-link active sindeco">Contacto</a>
+                              <a className="nav-link active">Contacto</a>
                             </li>
                           </ul>
                       </div>
