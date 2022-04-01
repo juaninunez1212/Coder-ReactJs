@@ -1,4 +1,5 @@
 import React from "react"
+import CartWidget from "./CartWidget";
 
 
 export default function NavBar() {
@@ -12,6 +13,9 @@ export default function NavBar() {
               
                       <div className="navbar-collapse justify-content-md-center collapse show" id="navbarsExample10">
                         <ul className="navbar-nav">
+                            <li className="nav-item">
+                            <a className="nav-link active" aria-current="page"><CartWidget/></a>
+                            </li>
                             <li className="nav-item">
                               <a className="nav-link active" aria-current="page">Inicio</a>
                             </li>
