@@ -21,7 +21,7 @@ export default function ItemCount({stock, initial, OnAdd}) {
 
   return (
     <>
-      <div>
+      <div className="itemcount">
         <button onClick={() => setX(chequearMenos(x))}> - </button>
         <p>{x}</p>
         <button onClick={() => setX(chequearMas(x, stock, OnAdd))}> + </button>
