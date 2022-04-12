@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import ItemDetailContainer from './ItemDetailContainer';
 
 export default function Item({productos}) {
   

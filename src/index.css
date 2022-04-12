@@ -21,7 +21,7 @@ code {
   display: grid;
   grid-template-areas: "menos contador mas"
   "botonAgr"; 
-  grid-template-columns: repeat(3,auto);
+  grid-template-columns: repeat(4,1fr);
   width: 250px;
 }
 
