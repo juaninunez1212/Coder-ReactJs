@@ -1,11 +1,13 @@
 import React , { useEffect, useState }from "react"
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
+import ItemDetailContainer from "./ItemDetailContainer";
 
 export default function ItemListContainer() {
     
 
   function OnAdd (cantidad, stock){
+    console.log("1111")
     if (cantidad == 1) {
       alert("Se añadio al carrito " + cantidad + " unidad");
     } else {
@@ -52,8 +54,9 @@ export default function ItemListContainer() {
   return (
     <>
     
-      <ItemCount stock={5} initial={1} OnAdd={OnAdd} />
+      
       <ItemList productos={productos}/>
+      <ItemDetailContainer OnAdd={OnAdd}/>
     </>
   );
 }

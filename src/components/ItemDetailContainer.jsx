@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react"
 import ItemDetail from './ItemDetail';
-import { traerProducto } from "./stock";
+import { traerProductos } from "./stock";
 
-export default function ItemDetailContainer() {
-    const [producto, setProducto] = useState({});
+export default function ItemDetailContainer({OnAdd}) {
+    const [productos, setProductos] = useState([]);
 
     useEffect(() => {
         /* fetch('https://fakestoreapi.com/products/1')
             .then((res) => res.json())
             .then((json) => console.log(json)); */
-        traerProducto().then((res) => {
+        traerProductos().then((res) => {
             
-            setProducto(res);
+            setProductos(res);
         });
     }, []);
 
+    
     return (
         <>
             
-            <ItemDetail producto={producto} />
+            <ItemDetail producto={productos} OnAdd={OnAdd} />
         </>
     );
 };
