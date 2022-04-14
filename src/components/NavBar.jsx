@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 
@@ -14,36 +15,24 @@ export default function NavBar() {
                       <div className="navbar-collapse justify-content-md-center collapse show" id="navbarsExample10">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                            <a className="nav-link active" aria-current="page"><CartWidget/></a>
+                            <Link to={"/Carrito"} className="nav-link active" aria-current="page"><CartWidget/></Link>
                             </li>
                             <li className="nav-item">
-                              <a className="nav-link active" aria-current="page">Inicio</a>
+                              <Link to={"/"}className="nav-link active" aria-current="page">Inicio</Link>
                             </li>
                             <li className="nav-item">
-                              <a className="nav-link active" >Juegos</a>
+                              <Link to={'/category'}className="nav-link active" >Juegos</Link>
                             </li>
-                            <li className="nav-item dropdown">
-                              <a className="nav-link dropdown-toggle active"  id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false">Generos</a>
-                              <ul className="dropdown-menu" aria-labelledby="dropdown10">
-                                <li><a className="dropdown-item" >Accion</a></li>
-                                <li><a className="dropdown-item" >Aventura</a></li>
-                                <li><a className="dropdown-item" >Fantasía</a></li>
-                                <li><a className="dropdown-item" >Suspenso</a></li>
-                                <li><a className="dropdown-item" >Terror</a></li>
-                                <li><a className="dropdown-item" >Carrera</a></li>
-                              </ul>
-                            </li>
-                            <li className="nav-item dropdown">
-                              <a className="nav-link dropdown-toggle active" id="dropdown08" data-bs-toggle="dropdown" aria-expanded="false">Plataforma</a>
-                              <ul className="dropdown-menu" aria-labelledby="dropdown10">
-                                <li><a className="dropdown-item">PC</a></li>
-                                <li><a className="dropdown-item">Play Station</a></li>
-                                <li><a className="dropdown-item">Xbox</a></li>
-                                <li><a className="dropdown-item">Nintendo</a></li>
-                              </ul>
-                            </li>
+                            <li className="nav-item"><Link to={'/category/Accion'} className="nav-link active" >Accion</Link></li>
+                            <li className="nav-item"><Link to={'/category/Aventura'} className="nav-link active" >Aventura</Link></li>
+                            <li className="nav-item"><Link to={'/category/Deportes'} className="nav-link active" >Deportes</Link></li>
+                            <li className="nav-item"><Link to={'/category/Suspenso'} className="nav-link active" >Suspenso</Link></li>
+                            <li className="nav-item"><Link to={'/category/Terror'} className="nav-link active" >Terror</Link></li>
+                            <li className="nav-item"><Link to={'/category/Carrera'} className="nav-link active" >Carrera</Link></li>
+                           
+                            
                             <li className="nav-item">
-                              <a className="nav-link active">Contacto</a>
+                              <Link to={"/"} className="nav-link active">Contacto</Link>
                             </li>
                           </ul>
                       </div>

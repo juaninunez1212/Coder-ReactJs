@@ -1,12 +1,26 @@
-import React from "react"
+import React, { useState } from "react"
+
 import ItemCount from "./ItemCount";
 
-
-export default function ItemDetail({producto, OnAdd}) {
+function OnAdd (cantidad, stock){
     
+  if (cantidad == 1) {
+    alert("Se añadio al carrito " + cantidad + " unidad");
+  } else {
+    alert("Se añadieron al carrito " + cantidad + " unidadades");
+  }
+ 
+   cantidad = 1;
+   return cantidad
+}
+
+
+export default function ItemDetail({url, juego, precio}) {
+   
+  
   return (
     <>
-    <div>{producto.map(item => <div><img src={item.url} alt={item.juego} class="cartelera"/><div><h2>{item.juego}</h2><h3>${item.precio}</h3><ItemCount stock={5} initial={1} OnAdd={OnAdd}/></div></div> )}</div>
+    <div><div><img src={url} alt={juego} class="cartelera"/><div><h2>{juego}</h2><h3>${precio}</h3><p> bla bla bla bla bla bla</p><ItemCount stock={5} initial={1} OnAdd={OnAdd}/></div></div></div>
     </>
   );
 }

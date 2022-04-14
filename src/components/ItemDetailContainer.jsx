@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 import ItemDetail from './ItemDetail';
-import { traerProductos } from "./stock";
+import { traerProducto } from "./stock";
 
 export default function ItemDetailContainer({OnAdd}) {
-    const [productos, setProductos] = useState([]);
+    const [producto, setProducto] = useState([]);
 
+    const {id} = useParams();
     useEffect(() => {
-        /* fetch('https://fakestoreapi.com/products/1')
-            .then((res) => res.json())
-            .then((json) => console.log(json)); */
-        traerProductos().then((res) => {
-            
-            setProductos(res);
+        
+        traerProducto(id).then((res) => {
+            setProducto(res);
+        })
+        .catch((error) => {
+            console.log(error);
         });
-    }, []);
+    }, [id]);
 
     
     return (
         <>
             
-            <ItemDetail producto={productos} OnAdd={OnAdd} />
+            <ItemDetail {...producto}/>
         </>
     );
 };

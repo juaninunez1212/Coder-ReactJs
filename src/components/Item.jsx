@@ -1,15 +1,16 @@
-import React, { useState } from "react"
+import React from "react"
+import { Link } from "react-router-dom";
 
 
 export default function Item({productos}) {
-  
+  console.log(productos)
 
   return (
     <>
-        <div id="catalogo">
-        {productos.map(item => <div className="espacio"><img src={item.url} alt="" class="cartelera" /><br/><p>{item.juego}</p><button id={item.id} class="carrito_añadir precio">Añadir al carrito ${item.precio}</button></div>)}
-        {/* {productos.map(item => <p id={item.id}>{" " + item.juego + " $" + item.precio}</p>)} */}
-        </div>
+        
+        <div className="espacio"><img src={productos.url} alt="" class="cartelera" /><br/><p>{productos.juego}</p><Link to={"/"+productos.id}id={productos.id} class="carrito_añadir precio">Ver detalle</Link></div>
+        
+        
     </>
   );
 }

@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import Item from "./Item";
 
 export default function ItemList({productos}) {
   
   return (
     <>
-    
-      <Item productos={productos} />
+      <div id="catalogo">
+      {productos.map((producto) =>
+      
+      <Item key={producto.id} productos={producto} />
+      
+      )}
+      </div>
     </>
   );
 }
