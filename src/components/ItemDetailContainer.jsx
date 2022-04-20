@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemDetail from './ItemDetail';
 import { traerProducto } from "./stock";
 
-export default function ItemDetailContainer({OnAdd}) {
+export default function ItemDetailContainer() {
     const [producto, setProducto] = useState([]);
 
     const {id} = useParams();

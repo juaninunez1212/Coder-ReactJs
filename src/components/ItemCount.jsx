@@ -1,7 +1,8 @@
 import React, { useState } from "react"
+import { Link } from "react-router-dom";
 
 
-export default function ItemCount({stock, initial, OnAdd}) {
+export default function ItemCount({juego, precio, url,stock, initial, OnAdd}) {
   const [x, setX] = useState(initial);
   
   function chequearMenos(x) {
@@ -26,7 +27,8 @@ export default function ItemCount({stock, initial, OnAdd}) {
         <p>{x}</p>
         <button onClick={() => setX(chequearMas(x, stock, OnAdd))}> + </button>
         <br />
-        <button onClick={() => setX(OnAdd(x))}>Añadir al carrito</button>
+        <button onClick={() => setX(OnAdd(x, juego, precio, url))}>Añadir al carrito</button>
+        <Link to={"/Carrito"}><button>Finalizar compra</button></Link>
       </div>
     </>
   );

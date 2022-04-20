@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -17,21 +18,27 @@ code {
   height: 40px;
 }
 
+
+
 .itemcount {
   display: grid;
   grid-template-areas: "menos contador mas"
-  "botonAgr"; 
-  grid-template-columns: repeat(4,1fr);
+  "botonAgr FinalizarBtn"; 
+  grid-template-columns: repeat(3,1fr);
   width: 250px;
 }
 
 #catalogo {
   display: grid;
   grid-area: main;
-  grid-template-columns: repeat(5, 4fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, auto); }
 
-.espacio:hover {
+.espacio {
+  margin-bottom: 50px;
+}
+
+  .espacio:hover {
   /* animation-name: fotocartelera ; */
   transform: scale(110%); }
 
