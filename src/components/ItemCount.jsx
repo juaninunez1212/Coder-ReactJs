@@ -27,7 +27,7 @@ export default function ItemCount({juego, precio, url,stock, initial, OnAdd}) {
         <p>{x}</p>
         <button onClick={() => setX(chequearMas(x, stock, OnAdd))}> + </button>
         <br />
-        <button onClick={() => setX(OnAdd(x, juego, precio, url))}>Añadir al carrito</button>
+        <button onClick={() => setX(OnAdd(x))}>Añadir al carrito</button>
         <Link to={"/Carrito"}><button>Finalizar compra</button></Link>
       </div>
     </>

@@ -6,20 +6,19 @@ import ItemCount from "./ItemCount";
 
 
 
-export default function ItemDetail({url, juego, precio, stock}) {
-  const productosCarrito = []
+export default function ItemDetail(producto) {
+ 
   
 
   function OnAdd (cantidad){
     
     if (cantidad == 1) {
-      alert("Se añadio al carrito " + cantidad + " unidad del " + juego);
+      alert("Se añadio al carrito " + cantidad + " unidad del " );
     } else {
-      alert("Se añadieron al carrito " + cantidad + " unidadades del " + juego);
+      alert("Se añadieron al carrito " + cantidad + " unidadades del " );
     }
 
-    productosCarrito.push({juego: juego, precio: precio, url: url, cantidad: cantidad})
-    console.log(productosCarrito);
+    
      cantidad = 1;
      return cantidad
   }
@@ -28,7 +27,17 @@ export default function ItemDetail({url, juego, precio, stock}) {
   
   return (
     <>
-    <div><div><img src={url} alt={juego} class="cartelera"/><div><h2>{juego}</h2><h3>${precio}</h3><p> bla bla bla bla bla bla</p><ItemCount juego={juego} precio={precio} url={url} stock={stock} initial={1} OnAdd={OnAdd}/></div></div></div>
+    <div>
+      <div>
+        <img src={producto.url} alt={producto.juego} class="cartelera"/>
+        <div>
+          <h2>{producto.juego}</h2>
+          <h3>${producto.precio}</h3>
+          <p> bla bla bla bla bla bla</p>
+          <ItemCount stock={producto.stock} initial={1} OnAdd={OnAdd}/>
+          </div>
+      </div>
+    </div>
     </>
   );
 }
