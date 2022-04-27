@@ -23,10 +23,10 @@ export default function ItemDetail(producto) {
     // const [open, setOpen] = useState(false);
 
    
-    addToCart({ ...producto, count });
-    
-
+    addToCart({...producto, count});
     alert("AGREGADO")
+
+  
   
     // const handleClickOpen = () => {
     //   setOpen(true);

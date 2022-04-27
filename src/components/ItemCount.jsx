@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom";
 
 
-export default function ItemCount({stock, OnAdd}) {
+export default function ItemCount({stock, onAdd}) {
   const [count, setCount] = useState(1);
   
   
@@ -19,7 +19,7 @@ export default function ItemCount({stock, OnAdd}) {
               if (count < stock) setCount(count + 1);
         }}> + </button>
         <br />
-        <button onClick={() => OnAdd(count)}>Añadir al carrito</button>
+        <button onClick={() => onAdd(count)}>Añadir al carrito</button>
         <Link to={"/Carrito"}><button>Finalizar compra</button></Link>
       </div>
     </>
