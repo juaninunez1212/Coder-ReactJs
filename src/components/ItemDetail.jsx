@@ -15,14 +15,14 @@ import ItemCount from './ItemCount';
 
 
 export default function ItemDetail(producto) {
-  
-
   const { addToCart } = useContext(CartContext);
 
-  const OnAdd = (count) => {
+  
+
+  function onAdd(count)  {
     // const [open, setOpen] = useState(false);
 
-    
+   
     addToCart({ ...producto, count });
     
 
@@ -86,8 +86,8 @@ export default function ItemDetail(producto) {
           <h3>${producto.precio}</h3>
           <p> bla bla bla bla bla bla</p>
           <div className="itemcount">
-            <ItemCount stock={producto.stock} onAdd={OnAdd}></ItemCount>
-            <Link to={"/Carrito"}><button>Finalizar compra</button></Link>
+            <ItemCount stock={producto.stock} onAdd={onAdd}></ItemCount>
+            
           </div>
           </div>
       </div>
