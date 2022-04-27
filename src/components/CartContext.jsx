@@ -23,7 +23,7 @@ export default function CartContextProvider  (children) {
     // elimino del carrito el elemento que sea igual a mi id
     // filter => te va a devolver un array que cumpla con lo que vos pases en la condición de la función callback
     // [1,2,3,4,5].filter((number)=>number === 5)) => devolver un nuevo array [5]
-    setCart(cart.filter((producto) => producto.id !== id));
+    setCart(cart.filter((item) => item.id !== id));
     
   };
   // remueve todo del carrito

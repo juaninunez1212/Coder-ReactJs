@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { CartContext } from './CartContext';
+import ItemCount from './ItemCount';
 
 
 
@@ -14,15 +15,16 @@ import { CartContext } from './CartContext';
 
 
 export default function ItemDetail(producto) {
-  const [count, setCount] = useState(1);
   
 
-  const OnAdd = () => {
+  const { addToCart } = useContext(CartContext);
+
+  const OnAdd = (count) => {
     // const [open, setOpen] = useState(false);
 
-    const { addToCart } = useContext(CartContext);
+    
     addToCart({ ...producto, count });
-    setCount(1);
+    
 
     alert("AGREGADO")
   
@@ -84,16 +86,7 @@ export default function ItemDetail(producto) {
           <h3>${producto.precio}</h3>
           <p> bla bla bla bla bla bla</p>
           <div className="itemcount">
-            <button onClick={() => {
-                  if (count > 1) setCount(count - 1);
-                }}
-            > - </button>
-            <input value={count}  disabled/>
-            <button onClick={() => {
-                  if (count < producto.stock) setCount(count + 1);
-            }}> + </button>
-            <br />
-            <button onClick={() => OnAdd()}>Añadir al carrito</button>
+            <ItemCount stock={producto.stock} onAdd={OnAdd}></ItemCount>
             <Link to={"/Carrito"}><button>Finalizar compra</button></Link>
           </div>
           </div>
