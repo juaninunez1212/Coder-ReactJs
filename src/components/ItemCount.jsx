@@ -19,7 +19,7 @@ export default function ItemCount({stock, OnAdd}) {
               if (count < stock) setCount(count + 1);
         }}> + </button>
         <br />
-        <button onClick={() => OnAdd(count)}>Añadir al carrito</button>
+        <button onClick={() => OnAdd(count,setCount)}>Añadir al carrito</button>
         <Link to={"/Carrito"}><button>Finalizar compra</button></Link>
       </div>
     </>

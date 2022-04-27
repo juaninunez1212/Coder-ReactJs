@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { CartContext } from './CartContext';
-import ItemCount from "./ItemCount";
+
 
 
 
@@ -18,54 +18,58 @@ export default function ItemDetail(producto) {
   
 
   const OnAdd = () => {
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
 
     const { addToCart } = useContext(CartContext);
+    addToCart({ ...producto, count });
+    setCount(1);
+
+    alert("AGREGADO")
   
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
+    // const handleClickOpen = () => {
+    //   setOpen(true);
+    // };
   
-    const handleClose = () => {
-      setOpen(false);
-    };
+    // const handleClose = () => {
+    //   setOpen(false);
+    // };
   
-    return (
-      <div>
-        <button
-          className='flex ml-5 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded'
-          onClick={handleClickOpen}
-        >
-          {btnContent}
-        </button>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby='alert-dialog-title'
-          aria-describedby='alert-dialog-description'
-        >
-          <DialogTitle id='alert-dialog-title'>{message}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id='alert-dialog-description'>
-              Are you sure you want to add this item to your cart?
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
-            <Button
-              onClick={() => {
-                handleClose();
-                addToCart({ ...producto, count });
-                setCount(1);
-              }}
-              autoFocus
-            >
-              Agree
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    );
+    // return (
+    //   <div>
+    //     <button
+    //       className='flex ml-5 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded'
+    //       onClick={handleClickOpen}
+    //     >
+    //       Add to cart
+    //     </button>
+    //     <Dialog
+    //       open={open}
+    //       onClose={handleClose}
+    //       aria-labelledby='alert-dialog-title'
+    //       aria-describedby='alert-dialog-description'
+    //     >
+    //       <DialogTitle id='alert-dialog-title'>Add to cart</DialogTitle>
+    //       <DialogContent>
+    //         <DialogContentText id='alert-dialog-description'>
+    //           Are you sure you want to add this item to your cart?
+    //         </DialogContentText>
+    //       </DialogContent>
+    //       <DialogActions>
+    //         <Button onClick={handleClose}>Disagree</Button>
+    //         <Button
+    //           onClick={() => {
+    //             handleClose();
+    //             addToCart({ ...producto, count });
+    //             setCount(1);
+    //           }}
+    //           autoFocus
+    //         >
+    //           Agree
+    //         </Button>
+    //       </DialogActions>
+    //     </Dialog>
+    //   </div>
+    // );
   };
 
   
