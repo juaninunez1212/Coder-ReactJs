@@ -6,7 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { CartContext } from './CartContext';
+import  {CartContext} from '../Context/CartContextProvider';
 import ItemCount from './ItemCount';
 
 
@@ -15,14 +15,12 @@ import ItemCount from './ItemCount';
 
 
 export default function ItemDetail(producto) {
-  const { addToCart } = useContext(CartContext);
+  const {addToCart} = useContext(CartContext);
 
-  
 
   function onAdd(count)  {
     // const [open, setOpen] = useState(false);
 
-   
     addToCart({...producto, count});
     alert("AGREGADO")
 

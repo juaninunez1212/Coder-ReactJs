@@ -1,13 +1,13 @@
 import React, { useState, createContext } from 'react';
 
-const prueba = []
-export const CartContext = createContext(prueba);
 
-export default function CartContextProvider  (children) {
+export const CartContext = createContext();
+
+export default function CartContextProvider  ({children}) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    // uso findIndex porque nos va a permitir acceder a la posición del array del producto que ya existe en nuestro cart
+    // uso findIndex porque nos va a permitir acceder a la posición del array del p   |roducto que ya existe en nuestro cart
     // para modificar la cantidad del producto
     // en caso de que el producto no esté en nuestro cart, nos devuelve -1 y ahí agregamos nuestro producto al cart
     const indexProducto = cart.findIndex((cartItem) => cartItem.id === item.id);
