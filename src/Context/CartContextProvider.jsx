@@ -5,7 +5,8 @@ export const CartContext = createContext();
 
 export default function CartContextProvider  ({children}) {
   const [cart, setCart] = useState([]);
-
+  const [total, setTotal] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
   const addToCart = (item) => {
     // uso findIndex porque nos va a permitir acceder a la posición del array del p   |roducto que ya existe en nuestro cart
     // para modificar la cantidad del producto
@@ -17,6 +18,8 @@ export default function CartContextProvider  ({children}) {
       setCart(newCart);
     } else {
       setCart([...cart, item]);
+      setTotal(total + (item.count * item.precio));
+      setTotalItems(totalItems + item.count);
       console.log("cartcontext OK");
     }
   };
@@ -32,7 +35,7 @@ export default function CartContextProvider  ({children}) {
 
   return (
       
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, buyAll }}>
+    <CartContext.Provider value={{ total, totalItems, cart, addToCart, removeFromCart, buyAll }}>
       {children}
     </CartContext.Provider>
   );

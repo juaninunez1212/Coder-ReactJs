@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
+import { CartContext } from '../Context/CartContextProvider';
 
 
 export default function NavBar() {
+  const {totalItems} = useContext(CartContext);
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Twelfth navbar example">
@@ -15,7 +17,7 @@ export default function NavBar() {
                       <div className="navbar-collapse justify-content-md-center collapse show" id="navbarsExample10">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                            <Link to={"/Carrito"} className="nav-link active" aria-current="page"><CartWidget/></Link>
+                            <Link to={"/Carrito"} className="nav-link active" aria-current="page">({totalItems})🛒</Link>
                             </li>
                             <li className="nav-item">
                               <Link to={"/"}className="nav-link active" aria-current="page">Inicio</Link>
