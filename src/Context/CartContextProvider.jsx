@@ -1,12 +1,13 @@
 import React, { useState, createContext } from 'react';
 
+
 export const CartContext = createContext();
 
-export default function CartContextProvider  (children) {
+export default function CartContextProvider  ({children}) {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    // uso findIndex porque nos va a permitir acceder a la posición del array del producto que ya existe en nuestro cart
+    // uso findIndex porque nos va a permitir acceder a la posición del array del p   |roducto que ya existe en nuestro cart
     // para modificar la cantidad del producto
     // en caso de que el producto no esté en nuestro cart, nos devuelve -1 y ahí agregamos nuestro producto al cart
     const indexProducto = cart.findIndex((cartItem) => cartItem.id === item.id);
@@ -23,7 +24,7 @@ export default function CartContextProvider  (children) {
     // elimino del carrito el elemento que sea igual a mi id
     // filter => te va a devolver un array que cumpla con lo que vos pases en la condición de la función callback
     // [1,2,3,4,5].filter((number)=>number === 5)) => devolver un nuevo array [5]
-    setCart(cart.filter((producto) => producto.id !== id));
+    setCart(cart.filter((item) => item.id !== id));
     
   };
   // remueve todo del carrito
