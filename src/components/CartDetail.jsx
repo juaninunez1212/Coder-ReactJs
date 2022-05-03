@@ -28,7 +28,7 @@ const CartDetail = () => {
                     <span>{producto.juego}</span>
                     
                     <button
-                      onClick={() => removeFromCart(producto.id)}
+                      onClick={() => removeFromCart(producto)}
                      
                     >
                       Remove
