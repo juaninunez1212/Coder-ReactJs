@@ -3,7 +3,8 @@ import React , { useEffect, useState }from "react"
 import ItemList from "./ItemList";
 
 import { useParams } from "react-router-dom";
-import { traerProductos } from "./stock";
+// import { traerProductos } from "./stock";
+import {collection, docs, getDocs, getFirestore} from "firebase/firestore";
 
 export default function ItemListContainer() {
     
@@ -14,24 +15,38 @@ export default function ItemListContainer() {
   const { categoryId } = useParams();
   console.log('😊', categoryId);
 
+  // useEffect(() => {
+  //   setLoading(true);
+  //   traerProductos(categoryId)
+  //     .then((res) => setProductos(res))
+  //     .catch((error) => console.log(error))
+  //     .finally(() => {
+  //       setLoading(false);
+  //   });
+  // }, [categoryId]);
+
   useEffect(() => {
+
+
+    const db = getFirestore();
+
+    const traerProductos = collection(db, "productos");
     setLoading(true);
-    traerProductos(categoryId)
-      .then((res) => setProductos(res))
-      .catch((error) => console.log(error))
-      .finally(() => {
-        setLoading(false);
+  
+    getDocs(traerProductos).then((res) => {
+        setProductos(res.docs.map((item) => ({ id: item.id, ...item.data() })));
     });
-  }, [categoryId]);
+    console.log(productos)
+    
+}, [categoryId]);
+    
 
   
   return (
     <>
-    {loading ? (
-      <h1>Cargando Productos</h1>
-    ) : (
+    
       <ItemList productos={productos}/>
-      )}
+      
     </>
   );
 }
