@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { CartContext } from '../Context/CartContextProvider';
 
 const CartDetail = () => {
@@ -91,12 +91,14 @@ const CartDetail = () => {
               <span>Total cost</span>
               <span>${total}</span>
             </div>
+            <Link to={"/OrderCheck"}>
             <button
               onClick={buyAll}
               
             >
-              Buy
+              Finalizar compra
             </button>
+            </Link>
           </div>
         </div>
       </div>

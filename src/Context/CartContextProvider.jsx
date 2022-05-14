@@ -1,4 +1,7 @@
 import React, { useState, createContext } from 'react';
+import { Link } from 'react-router-dom';
+import FormularioCompraContainer from '../components/FormularioCompraContainer';
+
 
 
 export const CartContext = createContext();
@@ -32,7 +35,9 @@ export default function CartContextProvider  ({children}) {
     setTotalItems(totalItems - producto.count);
   };
   // remueve todo del carrito
-  const buyAll = () => setCart([]);
+  const buyAll = () =>{
+    
+  }
 
   return (
       
