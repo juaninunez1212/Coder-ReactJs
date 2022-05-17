@@ -34,7 +34,9 @@ export default function FormularioCompraContainer() {
        updateDoc(error, {stock: (cart[i].stock - cart[i].count) })
       }
       addDoc(ColeccionOrdenes, orden).then(({id}) => alert("Su orden a sido un exito, el id es: " + id))
-      
+      setTimeout(() => {
+        buyAll();
+    }, 5000);
       
       
 
