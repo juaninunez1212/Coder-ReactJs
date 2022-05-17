@@ -4,14 +4,14 @@ import ItemList from "./ItemList";
 
 import { useParams } from "react-router-dom";
 // import { traerProductos } from "./stock";
-import {collection, docs, getDocs, getFirestore} from "firebase/firestore";
+import {collection, docs, getDocs, getFirestore, query, where} from "firebase/firestore";
 
 export default function ItemListContainer() {
   
   
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true);
-
+  
   const { categoryId } = useParams();
   console.log('😊', categoryId);
   
@@ -30,15 +30,24 @@ export default function ItemListContainer() {
 
 
     const db = getFirestore();
-
-    const traerProductos = collection(db, "productos");
-    setLoading(true);
-  
-    getDocs(traerProductos).then((res) => {
+    if (categoryId === undefined) {
+      const traerProductos = collection(db, "productos")
+      getDocs(traerProductos).then((res) => {
         setProductos(res.docs.map((item) => ({ id: item.id, ...item.data() })));
     });
     console.log(productos)
+    }
+    else {
+    const traerProductos = query(collection(db, "productos"), where("categoria", "==", categoryId));
+    setLoading(true);
+    getDocs(traerProductos).then((res) => {
+      setProductos(res.docs.map((item) => ({ id: item.id, ...item.data() })));
+    });
     
+   } 
+    
+    
+
 }, [categoryId]);
     
 

@@ -19,10 +19,14 @@ export default function ItemDetail(producto) {
 
 
   function onAdd(count)  {
+
+    if (count > producto.stock) {
+      alert("No hay suficiente stock disponible")
+    } else {
     addToCart({...producto, count});
     setTotal(total + (count * producto.precio));
     setTotalItems(totalItems + count);
-      
+    }
   };
 
   
@@ -38,19 +42,7 @@ export default function ItemDetail(producto) {
         </div>
         <div id="info">
           
-          <p> bla bla bla bla bla bla 
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          bla bla bla bla bla bla
-           bla bla bla bla bla bla
-          bla bla bla bla bla bla
-          </p>
+          <p>{producto.descripcion}</p>
           
         </div> 
         <div id="itemcount">

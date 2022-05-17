@@ -18,9 +18,9 @@ export default function App() {
         <Routes>
           
           <Route exact path="/" element={<ItemListContainer/>}/>
-          <Route exact path="/category" element={<ItemListContainer/>} />
-          <Route exact path="/category/:categoryId" element={<ItemListContainer/>} />
-          <Route exact path="/:id" element={<ItemDetailContainer/>}/>
+          <Route exact path="/categories" element={<ItemListContainer/>} />
+          <Route exact path="/categories/:categoryId" element={<ItemListContainer/>} />
+          <Route exact path="/item/:id" element={<ItemDetailContainer/>}/>
           <Route exact path="/Carrito" element={<CartDetail/>}/>
           <Route exact path="/OrderCheck" element={<FormularioCompraContainer/>}/>
          

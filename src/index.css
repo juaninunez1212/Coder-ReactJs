@@ -121,7 +121,7 @@ select:valid+span:after {
   grid-gap: 20px;
   grid-template-columns: 0fr 0fr;
   
-  grid-template-areas: "foto titulo" "foto info"  "itemcount info"
+  grid-template-areas: "foto titulo" "foto info"  "itemcount info" 
   
 }
 
@@ -136,7 +136,7 @@ select:valid+span:after {
   display: grid;
   grid-area: info;
   text-align: justify;
-  
+  font-size: 22px;
   width: 500px;
 }
 
@@ -186,4 +186,30 @@ select:valid+span:after {
   font-weight: 8px;
   letter-spacing: 1.5px;
   font-style: italic;
+}
+
+#summary {
+  text-align: center;
+}
+
+#aliner {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 40px;
+}
+
+
+
+#btns_carrito {
+  float: left;
+  margin: 30px;
+}
+
+form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#forms_inputs {
+ width: 500px;
 }

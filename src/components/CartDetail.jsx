@@ -20,10 +20,10 @@ const CartDetail = () => {
       <div>
         <div>
           <div >
-            <h1>Shopping Cart</h1>
-            <h2 >{totalItems} Items</h2>
+            <h1 id="aliner">Shopping Cart</h1>
+            <h2 id="aliner" >{totalItems} Items</h2>
           </div>
-         
+         <div id="catalogo">
           {cart.length > 0 &&
             cart.map((producto) => (
               <div >
@@ -65,52 +65,37 @@ const CartDetail = () => {
                  
                 </span>
                 <span >
-                  (${producto.precio} c/u)
+                  (${producto.precio}   c/u)
                 </span>
               </div>
             ))}
-          <Link
-            to='/'
-            
-          >
-            
-            Continue Shopping
-          </Link>
+          </div>
+          
         </div>
 
         <div id='summary' >
-          
-          <div className='py-10'>
-            <label
-              htmlFor='promo'
-              
-            >
-              Promo Code
-            </label>
-            <input
-              type='text'
-              id='promo'
-              placeholder='Enter your code'
-              
-              readOnly
-            />
-          </div>
-          <button>
-            Apply
-          </button>
+
           <div >
-            <div >
+            <div id="aliner">
               <span>Total cost</span>
-              <span>${total}</span>
+              <span> ${total}</span>
             </div>
-            <Link to={"/OrderCheck"}>
-            <button disabled={botonActivo}
-              onClick={buyAll}
+            <Link to={"/OrderCheck"} id="" >
+            <button  disabled={botonActivo}
+              
               
             >
               Finalizar compra
             </button>
             </Link>
+            <Link
+            to='/'
+            className="nav-link"
+          ><button>
+            
+            Continue Shopping
+            </button>
+          </Link>
           </div>
         </div>
       </div>

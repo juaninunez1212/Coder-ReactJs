@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 
 
 export default function ItemCount({stock, onAdd}) {
   const [count, setCount] = useState(1);
+  const [botonActivo, SetBotonActivo] = useState(false)
   
-  
+ 
 
   return (
     <>

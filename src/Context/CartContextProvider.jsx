@@ -35,7 +35,10 @@ export default function CartContextProvider  ({children}) {
   };
   // remueve todo del carrito
   const buyAll = () =>{
-    
+    setCart([]);
+    setTotal();
+    setTotalItems();
+    window.location = "/"
   }
 
   return (
