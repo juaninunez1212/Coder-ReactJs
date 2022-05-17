@@ -9,18 +9,20 @@ export default function ItemCount({stock, onAdd}) {
 
   return (
     <>
-      <div className="itemcount">
-        <button onClick={() => {
+      <div>
+        <button id="menos" onClick={() => {
               if (count > 1) setCount(count - 1);
             }}
         > - </button>
-        <input value={count}  disabled/>
-        <button onClick={() => {
+        <input id="numero" value={count}  disabled/>
+        <button id="mas" onClick={() => {
               if (count < stock) setCount(count + 1);
         }}> + </button>
         <br />
-        <button onClick={() => onAdd(count)}>Añadir al carrito</button>
-        <Link to={"/Carrito"}><button>Finalizar compra</button></Link>
+        
+        <button id="botonAgr" onClick={() => onAdd(count)}>Añadir al carrito</button>
+        
+        <Link  to={"/Carrito"}><button id="FinalizarBtn" >Finalizar compra</button></Link>
       </div>
     </>
   );

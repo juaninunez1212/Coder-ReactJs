@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import ItemDetail from './ItemDetail';
 // import { traerProducto } from "./stock";
+
 import {doc, getDoc, getFirestore} from "firebase/firestore";
 
 export default function ItemDetailContainer() {
@@ -26,6 +27,7 @@ useEffect(() => {
     
     return (
         <>
+            
             
             <ItemDetail {...producto}/>
         </>

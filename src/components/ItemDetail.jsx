@@ -15,60 +15,14 @@ import ItemCount from './ItemCount';
 
 
 export default function ItemDetail(producto) {
-  const {addToCart} = useContext(CartContext);
+  const {addToCart, setTotal, setTotalItems, total, totalItems} = useContext(CartContext);
 
 
   function onAdd(count)  {
-    // const [open, setOpen] = useState(false);
-
     addToCart({...producto, count});
-    
-  
-  
-    // const handleClickOpen = () => {
-    //   setOpen(true);
-    // };
-  
-    // const handleClose = () => {
-    //   setOpen(false);
-    // };
-  
-    // return (
-    //   <div>
-    //     <button
-    //       className='flex ml-5 text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded'
-    //       onClick={handleClickOpen}
-    //     >
-    //       Add to cart
-    //     </button>
-    //     <Dialog
-    //       open={open}
-    //       onClose={handleClose}
-    //       aria-labelledby='alert-dialog-title'
-    //       aria-describedby='alert-dialog-description'
-    //     >
-    //       <DialogTitle id='alert-dialog-title'>Add to cart</DialogTitle>
-    //       <DialogContent>
-    //         <DialogContentText id='alert-dialog-description'>
-    //           Are you sure you want to add this item to your cart?
-    //         </DialogContentText>
-    //       </DialogContent>
-    //       <DialogActions>
-    //         <Button onClick={handleClose}>Disagree</Button>
-    //         <Button
-    //           onClick={() => {
-    //             handleClose();
-    //             addToCart({ ...producto, count });
-    //             setCount(1);
-    //           }}
-    //           autoFocus
-    //         >
-    //           Agree
-    //         </Button>
-    //       </DialogActions>
-    //     </Dialog>
-    //   </div>
-    // );
+    setTotal(total + (count * producto.precio));
+    setTotalItems(totalItems + count);
+      
   };
 
   
@@ -76,17 +30,34 @@ export default function ItemDetail(producto) {
   return (
     <>
     <div>
-      <div>
-        <img src={producto.url} alt={producto.juego} class="cartelera"/>
-        <div>
+      <div id="detalle">
+        <img id ="foto" src={producto.url} alt={producto.juego} class="cartelera"/>
+        <div id="titulo">
           <h2>{producto.juego}</h2>
           <h3>${producto.precio}</h3>
-          <p> bla bla bla bla bla bla</p>
-          <div className="itemcount">
+        </div>
+        <div id="info">
+          
+          <p> bla bla bla bla bla bla 
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          bla bla bla bla bla bla
+           bla bla bla bla bla bla
+          bla bla bla bla bla bla
+          </p>
+          
+        </div> 
+        <div id="itemcount">
             <ItemCount stock={producto.stock} onAdd={onAdd}></ItemCount>
             
-          </div>
-          </div>
+        </div>
+        
       </div>
     </div>
     </>

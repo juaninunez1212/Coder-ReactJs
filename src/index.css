@@ -1,11 +1,21 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #280149;
+  color: azure;
+  font-size: 26px;
   
+  
+}
+
+header {
+  text-align: center;
+  font-size: 22px;
 }
 
 code {
@@ -18,21 +28,34 @@ code {
   height: 40px;
 }
 
-
-
-.itemcount {
-  display: grid;
-  grid-template-areas: "menos contador mas"
-  "botonAgr FinalizarBtn"; 
-  grid-template-columns: repeat(3,1fr);
-  width: 250px;
+fieldset {
+  border: 10px
 }
+
+.nav-link {
+  color: azure;
+}
+
+#barraIndice {
+   color: azure;
+   background-color: #9E2FFA;
+}
+
+.centrado {
+  align-items: center;
+}
+
+
 
 #catalogo {
   display: grid;
   grid-area: main;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, auto); }
+  grid-template-rows: repeat(3, auto); 
+  margin-left: 130px;
+  margin-top: 50px; 
+}
+  
 
 .espacio {
   margin-bottom: 50px;
@@ -55,9 +78,20 @@ code {
 
 .precio {
   text-align: center;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
+  letter-spacing: 1.5px;
   font-style: italic;
+}
+
+input {
+  padding: 10px;
+  margin: 15px;
+}
+
+select {
+  padding: 5px;
+  margin: 15px;
 }
 
 input:invalid+span:after {
@@ -78,4 +112,78 @@ select:valid+span:after {
   position: absolute;
   content: '✓';
   padding-left: 5px;
+}
+
+#detalle {
+  margin-top: 70px;
+  justify-content: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 0fr 0fr;
+  
+  grid-template-areas: "foto titulo" "foto info"  "itemcount info"
+  
+}
+
+#foto {
+  display: grid;
+  grid-area: foto;
+  
+  
+}
+
+#info {
+  display: grid;
+  grid-area: info;
+  text-align: justify;
+  
+  width: 500px;
+}
+
+
+#itemcount {
+  justify-content: center;
+  display: grid;
+  grid-area: itemcount;
+  
+ 
+} 
+
+#numero {
+  margin: 5px;
+  width: 30%;
+  height: 60%;
+  text-align: center;
+  grid-area: contador;
+}
+
+#menos {
+  width: 30%;
+  height: 40%;
+  margin: 5px;
+}
+#mas {
+  margin: 5px;
+  width: 30%;
+  height: 40%;
+}
+
+#botonAgr {
+  width: 50%;
+  height: 40%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 8px;
+  letter-spacing: 1.5px;
+  font-style: italic;
+}
+
+#FinalizarBtn {
+  width: 50%;
+  height: 40%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 8px;
+  letter-spacing: 1.5px;
+  font-style: italic;
 }

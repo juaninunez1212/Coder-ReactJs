@@ -20,10 +20,9 @@ export default function CartContextProvider  ({children}) {
       newCart[indexProducto].count = newCart[indexProducto].count + item.count;
       setCart(newCart);
     } else {
-      setCart([...cart, item]);
-      setTotal(total + (item.count * item.precio));
-      setTotalItems(totalItems + item.count);
-      console.log("cartcontext OK");
+      setCart([...cart, { juego: item.juego, precio: item.precio, count: item.count, url: item.url, id: item.id, stock: item.stock }]);
+      
+      console.log(cart);
     }
   };
   const removeFromCart = (producto) => {
@@ -31,8 +30,8 @@ export default function CartContextProvider  ({children}) {
     // filter => te va a devolver un array que cumpla con lo que vos pases en la condición de la función callback
     // [1,2,3,4,5].filter((number)=>number === 5)) => devolver un nuevo array [5]
     setCart(cart.filter((item) => item.id !== producto.id));
-    setTotal(total - (producto.count * producto.precio));
-    setTotalItems(totalItems - producto.count);
+    
+    
   };
   // remueve todo del carrito
   const buyAll = () =>{
@@ -41,7 +40,7 @@ export default function CartContextProvider  ({children}) {
 
   return (
       
-    <CartContext.Provider value={{ total, totalItems, cart, addToCart, removeFromCart, buyAll }}>
+    <CartContext.Provider value={{ setTotal, setTotalItems, total, totalItems, cart, addToCart, removeFromCart, buyAll }}>
       {children}
     </CartContext.Provider>
   );

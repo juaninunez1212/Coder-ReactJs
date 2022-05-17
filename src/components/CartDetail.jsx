@@ -1,11 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { CartContext } from '../Context/CartContextProvider';
+import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
 
 const CartDetail = () => {
-  const { total, totalItems, cart, removeFromCart, buyAll } = useContext(CartContext);
-  
+  const { setTotal, setTotalItems, total, totalItems, cart, removeFromCart, buyAll } = useContext(CartContext);
+  const [botonActivo, SetBotonActivo] = useState(false)
   console.log(cart);
+  useEffect(() => {
+    if (totalItems === 0) {
+      SetBotonActivo(true)
+    }
+}, [totalItems]);
+  
 
 
   return (
@@ -28,18 +35,23 @@ const CartDetail = () => {
                     <span>{producto.juego}</span>
                     
                     <button
-                      onClick={() => removeFromCart(producto)}
+                      onClick={() => {
+                        setTotal(total - (producto.count * producto.precio));
+                        setTotalItems(totalItems - producto.count);  
+                        removeFromCart(producto)
+                      }}
                      
                     >
                       Remove
                     </button>
+                    
                   </div>
                 </div>
                 <div>
                  
 
                   <input
-                    
+                    disabled="disabled"
                     type='text'
                     value={producto.count}
                     readOnly
@@ -92,7 +104,7 @@ const CartDetail = () => {
               <span>${total}</span>
             </div>
             <Link to={"/OrderCheck"}>
-            <button
+            <button disabled={botonActivo}
               onClick={buyAll}
               
             >

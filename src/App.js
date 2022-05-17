@@ -8,6 +8,7 @@ import CartContextProvider from "./Context/CartContextProvider";
 import FormularioCompraContainer from "./components/FormularioCompraContainer";
 
 
+
 export default function App() {
   return (
     <>
@@ -15,12 +16,14 @@ export default function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
+          
           <Route exact path="/" element={<ItemListContainer/>}/>
           <Route exact path="/category" element={<ItemListContainer/>} />
           <Route exact path="/category/:categoryId" element={<ItemListContainer/>} />
           <Route exact path="/:id" element={<ItemDetailContainer/>}/>
           <Route exact path="/Carrito" element={<CartDetail/>}/>
           <Route exact path="/OrderCheck" element={<FormularioCompraContainer/>}/>
+         
         </Routes>
         
       </BrowserRouter>

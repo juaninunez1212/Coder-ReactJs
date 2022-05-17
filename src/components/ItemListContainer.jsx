@@ -7,13 +7,14 @@ import { useParams } from "react-router-dom";
 import {collection, docs, getDocs, getFirestore} from "firebase/firestore";
 
 export default function ItemListContainer() {
-    
+  
   
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true);
 
   const { categoryId } = useParams();
   console.log('😊', categoryId);
+  
 
   // useEffect(() => {
   //   setLoading(true);

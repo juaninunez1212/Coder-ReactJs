@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Link } from "react-router-dom";
 import { CartContext } from '../Context/CartContextProvider';
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getFirestore, doc, updateDoc } from "firebase/firestore";
 
 
 export default function FormularioCompraContainer() {
@@ -11,21 +11,36 @@ export default function FormularioCompraContainer() {
     const [numero, setNumero] = useState("");
     const [email, setEmail] = useState("");
     const [medioPago, setMedioPago] = useState("");
+    const [error, setError] = useState(0)
     
-    const enviarOrden = () => {
+    
+   
+    
+    
+    const enviarOrden = (e) => {
+      e.preventDefault();
+      
+
       const orden = {
           comprador: { nombre: name, telefono: numero, email: email, DNI: dni, MedioDePago: medioPago },
-          items: totalItems,
+          items: cart,
           total: total
       };
       const db = getFirestore();
       const ColeccionOrdenes = collection(db, "Ordenes");
+      for (let i=0; i < cart.length; i++) {
+        const error = doc(db, "productos", cart[i].id)
+       updateDoc(error, {stock: (cart[i].stock - cart[i].count) })
+      }
       addDoc(ColeccionOrdenes, orden).then(({id}) => console.log(id))
+      alert("Orden Exitosa")
   }
 
   return (
     <>
     <div>
+      <fieldset>
+      <form onSubmit={enviarOrden}>
       <h2>Ingrese sus datos</h2>
       <label>Nombre y Apellido:</label>
       <input type={"text"} value={name} placeholder="Ej: Esteban Quito" onChange={(e) => {setName(e.currentTarget.value);}} required minLength={4} ></input>
@@ -40,7 +55,7 @@ export default function FormularioCompraContainer() {
       <span className="validity"></span>
       <br></br>
       <label>Telefono:</label>
-      <input type={"tel"} value={numero} placeholder="1123232323" onChange={(e) => {setNumero(e.currentTarget.value);}} required minLength={10} maxLength={10} ></input>
+      <input type={"tel"} value={numero} placeholder="Ej: 11-23232323" onChange={(e) => {setNumero(e.currentTarget.value);}} required pattern="11-[0-9]{8}" ></input>
       <span className="validity"></span>
       <br></br>
       <label>Medio de Pago</label>
@@ -60,9 +75,13 @@ export default function FormularioCompraContainer() {
             cart.map((producto) => (
               <p>x{producto.count}   {producto.juego}  ${parseInt(producto.precio) * parseInt(producto.count)}   </p>
             ))}
-    </div>
+   
       
-    <button onClick={enviarOrden}>Confirmar Compra</button> 
+    <button type="submit" >Confirmar Orden</button>
+    </form>
+    </fieldset>
+                    
+    </div> 
     </>
   );
 }
